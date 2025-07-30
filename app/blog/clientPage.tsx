@@ -91,6 +91,7 @@ const App: React.FC = ({children}:any) => {
    <Content style={{ padding: '0 48px' }}>
 
     <div
+    
      style={{
       padding: 24,
       minHeight: 380,
