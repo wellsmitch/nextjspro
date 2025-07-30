@@ -14,7 +14,8 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@ant-design/pro-components": "^2.6.44"
+    "@ant-design/pro-components": "^2.6.44",
+    "react-lottie": "^1.2.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
