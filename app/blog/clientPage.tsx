@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { Breadcrumb, ConfigProvider, Layout, Menu, MenuProps, theme } from 'antd';
 import Lottie from "react-lottie";
 import logoAnimateJson from "@/assets/json/logo.json";
+import CategoryList from '../components/pc/CategoryList';
 const { Header, Content, Footer } = Layout;
 
   const items: MenuProps['items'] = [
@@ -52,7 +53,7 @@ const { Header, Content, Footer } = Layout;
   ]
 
 
-const App: React.FC = ({children}:any) => {
+const App: React.FC = (props) => {
  const {
   token: { colorBgContainer, borderRadiusLG },
  } = theme.useToken();
@@ -99,7 +100,7 @@ const App: React.FC = ({children}:any) => {
       borderRadius: borderRadiusLG,
      }}
     >
-     {children}
+      <CategoryList />
     </div>
    </Content>
    <Footer style={{ textAlign: 'center' }}>

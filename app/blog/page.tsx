@@ -9,9 +9,7 @@ export default function Home() {
   }
   return (
     <div>
-      <ClientPage>
-        <CategoryList />
-      </ClientPage>
+      <ClientPage></ClientPage>
 
     </div>
   );
