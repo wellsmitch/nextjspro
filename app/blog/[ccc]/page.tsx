@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import CccClient from "./ClientCpt"
+// import CccClient from "./ClientCpt"
 
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export default  function Page() {
 
  return (
   <>
-  <CccClient/>
+  {/* <CccClient/> */}
    123aaa
   </>
  )

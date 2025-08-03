@@ -1,6 +1,6 @@
 "use client"
 import { useParams, usePathname, useSearchParams } from "next/navigation";
-
+import DDD from "../wwwc"
 export default ()=> {
   const p = useParams()
  const p1 = useSearchParams()
@@ -9,5 +9,7 @@ export default ()=> {
   // p1.forEach((v,k)=> {
   //  console.log('k-v>>>>>>>>>',v,k)
   // })
-  return <></>
+  return <>
+    {/* <DDD/> */}
+  </>
 }

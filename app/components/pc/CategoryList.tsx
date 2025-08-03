@@ -2,7 +2,7 @@
 import Network from "@/network"
 import CategoryListClient from "./CategoryListClient"
 
-export default async () => {
+export default () => {
 
  // let categoryInfoParams: ResData = {
  //  results: []
