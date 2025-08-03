@@ -1187,6 +1187,13 @@ nanoid@^3.3.11, nanoid@^3.3.6:
   resolved "https://registry.npmmirror.com/nanoid/-/nanoid-3.3.11.tgz#4f4f112cefbe303202f2199838128936266d185b"
   integrity sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==
 
+next-nprogress@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmmirror.com/next-nprogress/-/next-nprogress-1.4.0.tgz#508058dc15fd2aee406da3cc6ffc8cdf3ebabb75"
+  integrity sha512-b0QCax2iQeIN4pJaTHA6ofDXYoQLfc2m2b/QIJV9/QIUd3RqaFMAcT0f0CnS8J3TF8a5eO4a8oEgMrd/IqKFfA==
+  dependencies:
+    nprogress "^0.2.0"
+
 next@14.2.7:
   version "14.2.7"
   resolved "https://registry.npmmirror.com/next/-/next-14.2.7.tgz#e02d5d9622ff4b998e5c89adfd660c9bf6435970"
@@ -1209,6 +1216,19 @@ next@14.2.7:
     "@next/swc-win32-arm64-msvc" "14.2.7"
     "@next/swc-win32-ia32-msvc" "14.2.7"
     "@next/swc-win32-x64-msvc" "14.2.7"
+
+nextjs-toploader@^3.8.16:
+  version "3.8.16"
+  resolved "https://registry.npmmirror.com/nextjs-toploader/-/nextjs-toploader-3.8.16.tgz#6405116ffdd652ecc049f3a3f672bf7e8f5feef8"
+  integrity sha512-xiejFF9OQD8ovvHfrFhnEmRytvZtwIOY/mMtI9punOAACXpYpgC0y1afJ4DSIEmUi4Syy9A5BsFpUORTJ9z8Ng==
+  dependencies:
+    nprogress "^0.2.0"
+    prop-types "^15.8.1"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npmmirror.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
 
 object-assign@4.x, object-assign@^4.1.1:
   version "4.1.1"
@@ -1243,7 +1263,7 @@ postcss@^8.4.41:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
-prop-types@^15.5.10, prop-types@^15.6.1:
+prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
