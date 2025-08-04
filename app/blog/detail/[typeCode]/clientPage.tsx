@@ -7,10 +7,10 @@ import Network from "@/network"
 import { ArrowLeftOutlined, CopyOutlined } from '@ant-design/icons';
 import 'highlight.js/styles/github-dark.min.css';
 import CHeader from "@/app/blog/CustomHeader"
-import {useRouter} from "@bprogress/next"
+import { useRouter } from "@bprogress/next"
 
 const ActicleManager: React.FC = () => {
- const nextRouter = useRouter()
+  const nextRouter = useRouter()
   const { typeCode } = useParams<{ typeCode: string }>() || { typeCode: "" }
 
   const [indexRes, setIndexRes] = useState<ResData>({
@@ -56,7 +56,7 @@ const ActicleManager: React.FC = () => {
         })
       },
     });
-    const res: ResData = cres.data||{}
+    const res: ResData = cres.data || {}
     const splitMark = "$_$_$"
     res?.results?.map((info: ResInfo) => {
       let tempList = (info.content || "") && (info?.content?.replace(/<pre/ig, splitMark + "<pre").replace(/<\/pre>/ig, "</pre>" + splitMark).split(splitMark));
@@ -81,7 +81,7 @@ const ActicleManager: React.FC = () => {
 
   useEffect(() => {
     getList(false)
-  }, [dataParams, typeCode,  tabsAccessKey])
+  }, [dataParams, typeCode, tabsAccessKey])
 
 
   const domRefs = useRef<any[]>([])
@@ -198,7 +198,7 @@ const ActicleManager: React.FC = () => {
         }
       }
     })
-    const resData = cresData.data ||{}
+    const resData = cresData.data || {}
     setcategoryList((
       resData?.results?.map((f: ResInfo) => {
         return { ...f, code: `${f.code}` }
@@ -217,18 +217,18 @@ const ActicleManager: React.FC = () => {
 
   return (
     <>
-      <CHeader 
-      modelActiveCode="categoryListIndex"
-      renderBack={()=> {
-        return <div
-        onClick={()=> {
-          console.log('123',123)
-          nextRouter.replace("/blog")
+      <CHeader
+        modelActiveCode="categoryListIndex"
+        renderBack={() => {
+          return <div
+            onClick={() => {
+              console.log('123', 123)
+              nextRouter.replace("/blog")
+            }}
+            style={{ width: 100, textAlign: "right", cursor: "pointer" }}>
+            <ArrowLeftOutlined className="header-back-icon" />返回
+          </div>
         }}
-        style={{width: 100, textAlign: "right", cursor: "pointer"}}>
-          <ArrowLeftOutlined className="header-back-icon" />返回
-        </div>
-      }}
       />
       <Row style={{ paddingTop: 16 }}>
         {searchCode && <Col span={3} offset={1}>

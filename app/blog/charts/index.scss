@@ -1,0 +1,19 @@
+.transitionAll {
+    scroll-behavior: smooth;
+    // transition: overflow .3s;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+.ant-anchor-ink-ball {
+    display: block !important; /* 确保小圆点显示 */
+  }
+
+  .chart-item {
+    margin: 12px auto;
+    box-shadow: 0 0 6px 6px #e7e7e7;
+    width: 96%;
+    border-radius: 6px;
+  }

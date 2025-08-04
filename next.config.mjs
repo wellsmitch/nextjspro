@@ -7,7 +7,7 @@ const __filename = import.meta.url;
 // 将 URL 转换为文件路径
 const __dirname = dirname(fileURLToPath(__filename));
 const nextConfig = {
- StrictMode: false,
+ // StrictMode: false,
  sassOptions: {
   includePaths: [path.join(__dirname, 'app')], // 配置 Sass 编译器
  },

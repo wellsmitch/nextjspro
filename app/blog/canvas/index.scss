@@ -1,0 +1,21 @@
+.canvas-wrap {
+    display: flex;
+    .canvas-div {
+        flex-basis:30%;
+        flex-grow: 0;
+        height: auto;
+        h2 {
+            background-color: #ffdf9e;
+            margin-bottom: 0px;
+            font-size: 16px;
+            color: #000;
+            line-height: 26px;
+            padding: 0 6px;        
+        }
+        canvas {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #e2e2e2;
+        }
+    }
+}
