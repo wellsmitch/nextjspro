@@ -30,7 +30,7 @@ const App: React.FC = (props) => {
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        <Button type='link' href='https://beian.mps.gov.cn/' target='_blank'>豫ICP备19041297号</Button>{new Date().getFullYear()} Blog Web
+        <Button type='link' href='https://beian.miit.gov.cn/' target='_blank'>豫ICP备19041297号</Button>{new Date().getFullYear()} Blog Web
       </Footer>
     </Layout>
     // </ConfigProvider>
