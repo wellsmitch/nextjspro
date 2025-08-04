@@ -4,11 +4,12 @@ import Network from "@/network"
 import { Avatar, Button, Card, Row } from "antd"
 import Paragraph from "antd/es/typography/Paragraph"
 import { useEffect, useRef, useState } from "react"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
+import { useRouter } from "@bprogress/next"
 
 export default () => {
  const [categoryInfo, setCategoryInfo] = useState<ResData>({
-  results: []
+  results: [{},{},{},{},{},{},{},{}]
  })
 
  const getIndexData = async () => {
@@ -50,7 +51,7 @@ export default () => {
        categoryInfo?.results?.map((info, infoIndex) => {
         return (
          <ProCard
-          key={info.objectId}
+          key={(info.objectId||"")+Math.random()}
           onMouseMove={(e) => {
            const mDom = e.currentTarget
            const moveDom = cursorMove.current
@@ -73,10 +74,12 @@ export default () => {
           bodyStyle={{ padding: 0 }}
           onClick={() => {
            console.log('info', info)
-           router.push(`/blog/detail/${info.objectId}`)
+           router.push(`/blog/detail/${info.code}`)
 
           }} style={{ cursor: "pointer" }}>
-          <Card>
+          <Card
+          loading={!info.objectId}
+          >
            <Card.Meta
             avatar={<Avatar src={info.icon} />}
             title={info.name}

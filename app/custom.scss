@@ -1,0 +1,123 @@
+
+#appid {
+
+ .blibli-class {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #666;
+ }
+
+.custom-header-right {
+ width: 60%;
+ // max-width: 360px;
+ display: flex;
+ justify-content: flex-start;
+ .user-avatar {
+  width: max-content;
+  height: 30px;
+  padding: 0 6px;
+  cursor: pointer;
+  line-height: 30px;
+  transition: all .3s;
+  &:hover {
+   background-color: #dddddd99;
+  }
+ }
+}
+ .custom-header-menu {
+  width: 390px;
+  $border-bottom-width: 6px;
+
+  &.ant-menu-light {
+   background-color: transparent;
+  }
+
+
+  @mixin hight-menu-sytle {
+   color: #333;
+   // font-weight: bolder;
+   transform: scale(1.2);
+  }
+
+  @mixin common {
+   position: absolute;
+   inset: 0 !important;
+   top: 22% !important;
+   z-index: -10;
+   margin: auto;
+   width: 50%;
+   height: 7px;
+   background-color: #fed43b !important;
+   color: #fff !important;
+   border-radius: 12px;
+   border-bottom-width: 0px;
+   transform: scaleX(0) !important;
+  }
+
+  @mixin sytleFn {
+   &::after {
+    @include common;
+    transition: transform .3s;
+   }
+
+   &:hover::after {
+    @include common;
+    transform: scaleX(1) !important;
+   }
+
+   &.ant-menu-item-selected::after,
+   &.ant-menu-submenu-selected::after {
+    transform: scaleX(1) !important;
+   }
+   &.ant-menu-item-selected,
+   &.ant-menu-submenu-selected {
+    @include hight-menu-sytle
+   }
+  }
+
+  &.ant-menu-light.ant-menu-horizontal {
+   &>.ant-menu-item {
+    user-select: none;
+    transition: all .6s;
+    &:hover {
+    @include hight-menu-sytle
+    }
+
+    .ant-menu-title-content {
+     background-color: transparent;
+    }
+
+    @include sytleFn();
+   }
+
+   &>.ant-menu-submenu {
+    user-select: none;
+    &:hover {
+    @include hight-menu-sytle
+    }
+     @include sytleFn();
+
+   }
+  }
+ }
+
+ @keyframes identifier {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+ transform: translateX(-10px);
+  }
+  100% {
+ transform: translateX(-20px);
+  }
+ }
+ .header-back-icon {
+  transform: translateX(0);
+  animation: identifier 2000ms linear infinite;
+  user-select: none;
+ }
+}

@@ -1,0 +1,54 @@
+.container {
+  padding-top: 80px;
+}
+
+.indexHome {
+  .index-card {
+    box-shadow: 0 0 15px 0 #9d9d9d;
+    margin-bottom: 20px;
+  }
+
+  .index-card-title-category {
+    color: #bc6161;
+  }
+  .ql-code-block-container,
+  .ql-syntax {
+    padding: 10px;
+    background-color: #23241f;
+    color: #f8f8f2;
+
+    .ql-ui {
+      display: none;
+    }
+  }
+
+  .code-wrap-panel {
+    position: relative;
+
+    .code-wrap-copy-icon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 10;
+      font-size: 20px;
+      color: #fff;
+      transition: all 0.3s;
+      padding: 6px 3px;
+
+      &:hover {
+        background: #5b5b5b;
+        border-radius: 6px;
+      }
+    }
+  }
+
+  .list-panel-hide-bottom {
+    transform: translateY(60px);
+    transition: transform .3s;
+    &.list-panel-show-bottom {
+      transform: translateY(0);
+    }
+  }
+
+}
+
