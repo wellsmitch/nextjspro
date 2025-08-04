@@ -44,7 +44,7 @@ service.interceptors.request.use((request: InternalAxiosRequestConfig) => {
   restUrl = options?.url
  }
 
-
+console.log("restUrl>>>>>>>")
  request.url = restUrl
  request.headers['X-LC-Id'] = appId
  request.headers["X-LC-Sign"] = !options?.headers?.autoWell ? `${md5Fn(dd + appKey)},${dd}` : `${md5Fn(dd + marsterKey)},${dd},master`
