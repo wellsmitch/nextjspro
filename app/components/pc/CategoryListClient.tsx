@@ -13,11 +13,13 @@ export default () => {
  })
 
  const getIndexData = async () => {
-  const res = await fetch("https://server.wellsmitch.top/api/getcodeList",{
-   method: "get"
+  const res = await Network.get("",{
+   params: {
+    tableName:"codeList"
+   }
   })
   
-  const res1: {results: []} = await res.json()
+  const res1: {results: []} = res.data
   
   setCategoryInfo(res1)
  }
