@@ -4,7 +4,7 @@ import { Breadcrumb, ConfigProvider, Layout, Menu, MenuProps, Space, theme, Butt
 
 import CategoryList from '../components/pc/CategoryList';
 import Cheader from "@/app/blog/CustomHeader"
-
+import "./index.scss"
 const { Content, Footer } = Layout;
 const App: React.FC = (props) => {
   const {

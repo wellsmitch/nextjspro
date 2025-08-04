@@ -1,0 +1,25 @@
+
+.cursor-move {
+  --l: 10px;
+  --t: 2px;
+  --g: 10px;
+  --w: 0px;
+  --h: 0px;
+  --x: 8px;
+  --y: 8px;
+  --jiaozheng: 0px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  pointer-events: none;
+  // background-color: #eee;
+  width: calc(var(--w) + var(--g)*2 - var(--jiaozheng));
+  height: calc(var(--h) + var(--g)*2);
+  border: var(--t) solid #d1d1d1;
+  border-radius: 6px;
+  left: calc(var(--x) - var(--g) + var(--jiaozheng) / 2);
+  top: calc(var(--y) - var(--g));
+  transition: all .2s;
+  // mask: conic-gradient(at var(--l) var(--l), #fff 75%, blue 75%) left top/calc(100% - var(--l) - calc(100% - var(--l))) repeat;
+}

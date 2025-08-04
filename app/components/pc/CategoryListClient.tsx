@@ -99,11 +99,9 @@ export default () => {
            />
           </Card>
          </ProCard>
-
          // </Col>
         )
        })
-
       }
      </ProCard>
 

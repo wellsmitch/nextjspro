@@ -1,0 +1,227 @@
+"use client"
+import { LockOutlined,  UserOutlined } from '@ant-design/icons';
+import {  LoginForm, ProConfigProvider, ProFormText, setAlpha,} from '@ant-design/pro-components';
+import { Button, Col, Form, Row, Space, } from 'antd';
+import type { CSSProperties } from 'react';
+import { useEffect, useState } from 'react';
+import { ReactComponent as LoginTitleLogo } from "@/assets/svg/login-title.svg"
+import "./index.scss"
+import NetWorkAction from "@/network"
+import logobgJson from "@/assets/json/logobg.json";
+import LottieReact from 'react-lottie';
+
+type LoginType = 'phone' | 'account';
+
+export default () => {
+
+  const [loginloading, setLoginLoading] = useState(false)
+  const [loginloadingForAuto, setLoginLoadingForAuto] = useState(false)
+
+  const loginFn = async (usrn?: string, pwd?: string) => {
+    // console.log(form?.getFieldsValue());
+    let { 
+      account = "",
+      password = "",
+    } = loginFormIns?.getFieldsValue()
+
+    if (usrn) {
+      account = usrn
+      password = pwd
+    }
+    if (usrn) {
+      setLoginLoadingForAuto(true)
+    } else {
+      setLoginLoading(true)
+    }
+
+    let loginRes = {} as any;
+    let roleInfo = {} as any;
+    try {
+      loginRes = await NetWorkAction.get("", {
+        params: {
+          tableName: "OnlineUser",
+          where: {
+            "$and": [
+              { account: account },
+              { password: password },
+            ],
+          }
+        }
+      })
+
+      // if (loginRes.results?.length > 0) {
+      //   roleInfo = await NetWorkAction.User.getRoles<{ objectId: string, results: RoleInfo[] }>("", {
+      //     params: {
+      //       // count:1,
+      //       where: {
+      //         "$and": [
+      //           { code: loginRes.results[0].role || "" },
+      //         ],
+      //       }
+      //     }
+      //   })
+      // } else {
+      //   message.warning({
+      //     content: "账号或者密码不正确"
+      //   })
+      // }
+      if (usrn) {
+        setLoginLoadingForAuto(false)
+      } else {
+        setLoginLoading(false)
+      }
+    } catch (err) {
+      setLoginLoading(false)
+      setLoginLoadingForAuto(false)
+      console.log('err.........................', err)
+    }
+  }
+
+  const [loginFormIns] = Form.useForm()
+
+  return (
+      <Row>
+        <Col span={6}>
+          <LottieReact
+            style={{ width: "100%", height: "100vh" }}
+            options={{
+              autoplay: true,
+              loop: true,
+              animationData: logobgJson
+            }}
+          >
+
+          </LottieReact>
+        </Col>
+        <Col span={18}>
+          <div style={{ backgroundColor: "#fff", marginTop: "10%" }}>
+            <LoginForm
+              form={loginFormIns}
+              onFinish={() => {
+                loginFn()
+              }}
+              submitter={{
+                render({ form }) {
+                  return <>
+                    <Space style={{ width: "100%", justifyContent: "center" }}>
+                      <Button loading={loginloading} type='primary' onClick={async () => {
+                        loginFn()
+
+                      }}>登录</Button>
+                      <Button loading={loginloadingForAuto} type='primary' onClick={() => {
+                        loginFn("user", "userpwd")
+                      }}>游客自动登录</Button>
+                      {/* <Button>注册</Button> */}
+                    </Space>
+                  </>
+                }
+              }}
+              logo={<>
+                <LoginTitleLogo style={{ display: "inline-block" }} viewBox="0 0 200 200" width={30} height={30} />
+                {/* <ReactSVG src="../../assets/svg/login-title.svg" /> */}
+              </>}
+              title="登录"
+              subTitle="宋玉彬的 Blog"
+            // actions={
+            //   <Space>
+            //     其他登录方式
+            //     <QqOutlined onClick={()=> {
+            //     location.href = "https://graph.qq.com/oauth2.0/authorize?client_id=101852145&redirect_uri=https://www.wellsmitch.top/blog/categoryListIndex&response_type=code&scope=get_user_info"
+            //   }} style={iconStyles} />
+            //   </Space>
+            // }
+            >
+              <>
+                <ProFormText
+                  name="account"
+                  fieldProps={{
+                    size: 'large',
+                    prefix: <UserOutlined className={'prefixIcon'} />,
+                  }}
+                  placeholder={'用户名: user'}
+                  rules={[
+                    {
+                      required: true,
+                      message: '请输入用户名!',
+                    },
+                  ]}
+                />
+                <ProFormText.Password
+                  name="password"
+                  allowClear
+                  fieldProps={{
+                    size: 'large',
+                    prefix: <LockOutlined className={'prefixIcon'} />,
+                    popoverProps: {
+                      title: "您的密码强度",
+                      // content:"cccccccccc",
+                      onOpenChange(open, e) {
+                        console.log(open, e);
+
+                      },
+                      // placement: "bottomRight"
+                    },
+                    // strengthText:
+                    //   'Password should contain numbers, letters and special characters, at least 8 characters long.',
+                    statusRender: (value) => {
+                      const getStatus = () => {
+                        if (value && value.length > 12) {
+                          return 'ok';
+                        }
+                        if (value && value.length > 6) {
+                          return 'pass';
+                        }
+                        return 'poor';
+                      };
+                      const status = getStatus();
+                      if (status === 'pass') {
+                        return (
+                          <div style={{ color: "orange" }}>
+                            强度：中
+                          </div>
+                        );
+                      }
+                      if (status === 'ok') {
+                        return (
+                          <div style={{ color: "green" }}>
+                            强度：强
+                          </div>
+                        );
+                      }
+                      return (
+                        <div style={{ color: "red" }}>强度：弱</div>
+                      );
+                    },
+                  }}
+                  placeholder={'密码: userpwd'}
+                  rules={[
+                    {
+                      required: true,
+                      message: '请输入密码！',
+                    },
+                  ]}
+                />
+              </>
+
+              {/* <div
+    style={{
+      marginBlockEnd: 24,
+    }}
+  >
+    <ProFormCheckbox noStyle name="autoLogin">
+      自动登录
+    </ProFormCheckbox>
+    <a
+      style={{
+        float: 'right',
+      }}
+    >
+      忘记密码
+    </a>
+  </div> */}
+            </LoginForm>
+          </div>
+        </Col>
+      </Row>
+  );
+};
