@@ -4,10 +4,10 @@ import {  LoginForm, ProConfigProvider, ProFormText, setAlpha,} from '@ant-desig
 import { Button, Col, Form, Row, Space, } from 'antd';
 import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
-import { ReactComponent as LoginTitleLogo } from "@/assets/svg/login-title.svg"
+import Image from 'next/image';
 import "./index.scss"
 import NetWorkAction from "@/network"
-import logobgJson from "@/assets/json/logobg.json";
+import logobgJson from "@/app/assets/json/logobg.json";
 import LottieReact from 'react-lottie';
 
 type LoginType = 'phone' | 'account';
@@ -117,8 +117,7 @@ export default () => {
                 }
               }}
               logo={<>
-                <LoginTitleLogo style={{ display: "inline-block" }} viewBox="0 0 200 200" width={30} height={30} />
-                {/* <ReactSVG src="../../assets/svg/login-title.svg" /> */}
+              <Image alt='ac' width={20} height={20} src={"/passets/svg/login-title.svg"}></Image>
               </>}
               title="登录"
               subTitle="宋玉彬的 Blog"
