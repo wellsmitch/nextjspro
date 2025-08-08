@@ -1,10 +1,11 @@
 "use client"
 import React, { Suspense } from 'react';
-import { Breadcrumb, ConfigProvider, Layout, Menu, MenuProps, Space, theme, Button} from 'antd';
+import { Breadcrumb, ConfigProvider, Layout, Menu, MenuProps, Space, theme, Button, Alert } from 'antd';
 
 import CategoryList from '../components/pc/CategoryList';
 import Cheader from "@/app/blog/CustomHeader"
 import "./index.scss"
+import Marquee from 'react-fast-marquee';
 const { Content, Footer } = Layout;
 const App: React.FC = (props) => {
   const {
@@ -15,12 +16,22 @@ const App: React.FC = (props) => {
     // <ConfigProvider>
     <Layout>
       <Cheader modelActiveCode='categoryListIndex' />
+      <Alert
+        style={{ position: "sticky", top: "56px", zIndex: 2 }}
+        type='success'
+        banner
+        message={
+          <Marquee pauseOnHover gradient={false}>
+            本站点采用 {<span className='syb-hight'>Next.js</span>} 构建，欢迎来到{<span className='syb-hight'>宋玉彬</span>}的Blog，一起记录前端美好生活~
+          </Marquee>
+        }
+      />
       <Content style={{ padding: '0 48px' }}>
 
         <div
 
           style={{
-            padding: 24,
+            padding: ' 0 24px 24px',
             minHeight: 380,
             // background: colorBgContainer,
             borderRadius: borderRadiusLG,

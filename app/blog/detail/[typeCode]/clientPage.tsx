@@ -1,7 +1,7 @@
 "use client"
 import { useParams } from "next/navigation";
 import './index.scss';
-import { Alert, Button, Card, Col, Flex, Form, notification, Row, Space, Tabs } from 'antd';
+import { Alert, Anchor, Button, Card, Col, Flex, Form, notification, Row, Space, Tabs } from 'antd';
 import { act, useEffect, useRef, useState } from 'react';
 import Network from "@/network"
 import { ArrowLeftOutlined, CopyOutlined } from '@ant-design/icons';
@@ -230,34 +230,14 @@ const ActicleManager: React.FC = () => {
           </div>
         }}
       />
-      <Row style={{ paddingTop: 16 }}>
-        {searchCode && <Col span={3} offset={1}>
-          <Tabs
-            activeKey={tabsAccessKey}
-            style={{ height: "90vh", position: "sticky", top: "0px" }}
-            tabPosition={"left"}
-            onChange={(activeKey) => {
-              settabsAccessKey(activeKey)
-              setIndexRes({
-                count: 0,
-                results: [],
-              })
-            }}
-            items={categoryList.map((info) => {
-              return {
-                label: `${info.name}`,
-                key: `${info.code}`
-              };
-            })}
-          />
-        </Col>}
+      <Row style={{ padding: "16px 16px 0" }}>
 
-        <Col span={searchCode ? 19 : 23} >
+        <Col span={searchCode ? 20 : 23} >
           <Space.Compact block className='indexHome' direction="vertical">
             {
               indexRes?.results?.map((info, index) => {
                 return (
-                  <Card ref={ref => {
+                  <Card id={`id-${info.moduleType}`} ref={ref => {
                     domRefs.current[index] = ref
                   }} className={"index-card list-panel-hide-bottom " + ((info.domShowByBottom || index == 0) ? 'list-panel-show-bottom' : '')}
                     key={"a" + index}
@@ -283,14 +263,22 @@ const ActicleManager: React.FC = () => {
 
                               const tempDom = document.createElement("textarea")
                               // tempDom.style.display = "none"
-                              tempDom.innerText = tempdiv.innerText
+                              console.log(tempdiv.innerText)
+                              tempDom.value = tempdiv.innerText
                               document.body.append(tempDom)
                               tempDom.select()
                               const copyRes = document.execCommand("copy")
 
-                              notification.success({
-                                message: "复制成功！" + copyRes
-                              })
+                              if (copyRes) {
+                                notification.success({
+                                  message: "复制成功！"
+                                })
+                              } else {
+                                notification.success({
+                                  message: "复制失败！"
+                                })
+                              }
+
 
                               tempDom.remove()
                               tempdiv.remove()
@@ -319,6 +307,41 @@ const ActicleManager: React.FC = () => {
             <Alert style={{ lineHeight: "32px" }} showIcon type='info' message={"博主正在学习整理中敬请期待吧~"}></Alert>
           </Flex>}
         </Col>
+
+        {searchCode && <Col span={3} offset={1}>
+          {/* <Anchor
+            replace
+            items={
+              categoryList.map((info) => {
+                return {
+                  href: `#id-${info.code}`,
+                  title: `${info.code}`,
+                  key: `${info.code}`,
+                };
+              })
+            }
+          /> */}
+          <Tabs
+            activeKey={tabsAccessKey}
+            className="codelist-type-class"
+            style={{ height: "90vh", position: "sticky", top: "0px" }}
+            tabPosition={"left"}
+            onChange={(activeKey) => {
+              settabsAccessKey(activeKey)
+              setIndexRes({
+                count: 0,
+                results: [],
+              })
+            }}
+            items={categoryList.map((info) => {
+              return {
+                label: `${info.name}`,
+                key: `${info.code}`
+              };
+            })}
+          />
+        </Col>}
+
       </Row>
     </>
   );

@@ -2,7 +2,7 @@
 "use client"
 import {useRouter} from "@bprogress/next"
 import Lottie from "react-lottie";
-import logoAnimateJson from "@/assets/json/logo.json";
+import logoAnimateJson from "@/app/assets/json/logo.json";
 import { Layout, Menu, MenuProps, Space } from "antd";
 import { useState } from "react";
 import { ArrowLeftOutlined } from "@ant-design/icons";
@@ -75,10 +75,6 @@ const { Header, Content, Footer } = Layout;
       animationData: logoAnimateJson,
     }} isClickToPauseDisabled={true} width={100} height={60} ></Lottie>
     </div>
-
-    <h1
-     style={{fontSize: 16, fontWeight: 600}}
-    >宋玉彬的 Blog</h1>
     <Space className='custom-header-right'>
      {props.renderBack&&props.renderBack()}
      <Menu

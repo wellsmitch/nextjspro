@@ -2,6 +2,15 @@
   padding-top: 80px;
 }
 
+#appid {
+  .codelist-type-class {
+    .ant-tabs-nav-list {
+      border: 1px solid #d9d9d9;
+      border-right: none;
+    }
+  }
+}
+
 .indexHome {
   .index-card {
     box-shadow: 0 0 15px 0 #9d9d9d;
@@ -11,6 +20,7 @@
   .index-card-title-category {
     color: #bc6161;
   }
+
   .ql-code-block-container,
   .ql-syntax {
     padding: 10px;
@@ -45,10 +55,10 @@
   .list-panel-hide-bottom {
     transform: translateY(60px);
     transition: transform .3s;
+
     &.list-panel-show-bottom {
       transform: translateY(0);
     }
   }
 
 }
-
