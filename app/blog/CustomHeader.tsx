@@ -4,7 +4,7 @@ import { useRouter } from "@bprogress/next"
 import Lottie from "react-lottie";
 import logoAnimateJson from "@/app/assets/json/logo.json";
 import { Layout, Menu, MenuProps, Space } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 const { Header, Content, Footer } = Layout;
 
@@ -62,6 +62,18 @@ export default (props: { modelActiveCode?: string, renderBack?: Function }) => {
   const nextRouter = useRouter()
   const { modelActiveCode } = props
   const [activeCode, setActiveCode] = useState(modelActiveCode || "")
+
+  const [lottieFinish, setlottieFinish] = useState(false)
+
+  useEffect(() => {
+    if (lottieFinish) {
+      const dom = document.querySelector(".logo-lottie-class")
+      dom?.addEventListener("click", () => {
+        nextRouter.replace("/blog")
+      })
+    }
+  }, [lottieFinish])
+
   return <Header
     style={{
       position: 'sticky',
@@ -80,10 +92,7 @@ export default (props: { modelActiveCode?: string, renderBack?: Function }) => {
           {
             eventName: "DOMLoaded",
             callback() {
-              const dom = document.querySelector(".logo-lottie-class")
-              dom?.addEventListener("click", () => {
-                nextRouter.replace("/blog")
-              })
+              setlottieFinish(true)
             },
           }
 
