@@ -1,3 +1,4 @@
+"use client"
 import { useInteractStore } from "./Store";
 
 const dom = document as any;

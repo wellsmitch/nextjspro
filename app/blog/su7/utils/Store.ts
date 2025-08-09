@@ -1,3 +1,4 @@
+"use client"
 import { create } from "zustand";
 /**
  * 用户交互状态
