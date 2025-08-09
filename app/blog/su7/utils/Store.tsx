@@ -11,7 +11,7 @@ const useInteractStore = create(() => ({
     audioAllowed: false,
     browserHidden: false,
     begin: false,
-    controlDom: document.createElement("div"),  //控制器的dom
+    controlDom: <div></div>,  //控制器的dom
     end: false,
 }));
 

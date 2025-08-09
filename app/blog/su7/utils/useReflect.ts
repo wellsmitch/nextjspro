@@ -1,3 +1,4 @@
+"use client"
 import { useFBO } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef } from "react";

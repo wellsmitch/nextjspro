@@ -1,4 +1,4 @@
-
+"use client"
 import { FullScreenQuad } from 'three-stdlib'
 import { Color, ShaderMaterial, MathUtils, WebGLRenderTarget, NearestFilter, Material, WebGLRenderer, Texture } from 'three'
 import { CopyShader } from 'three-stdlib';

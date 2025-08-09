@@ -1,3 +1,4 @@
+"use client"
 import { PageActionType } from "./Reducer";
 
 interface IProps {

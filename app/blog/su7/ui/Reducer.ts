@@ -1,3 +1,4 @@
+"use client"
 interface PageState {
     load: boolean;
     game: boolean;

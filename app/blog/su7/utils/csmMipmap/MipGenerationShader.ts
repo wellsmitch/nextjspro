@@ -1,3 +1,4 @@
+"use client"
 import { UniformsUtils, Vector2 } from 'three';
 import { sampleFunctions } from './mipSampleFunctions';
 

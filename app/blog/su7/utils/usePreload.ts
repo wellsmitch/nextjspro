@@ -1,3 +1,4 @@
+"use client"
 import { useEffect } from "react";
 const usePreloadImages = (images: string[], onImagesLoaded?: (loadedImages: string[]) => void) => {
   useEffect(() => {

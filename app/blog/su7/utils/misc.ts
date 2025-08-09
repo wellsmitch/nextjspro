@@ -1,3 +1,4 @@
+"use client"
 import { type ObjectMap } from "@react-three/fiber";
 import { type GLTF } from 'three-stdlib';
 import { Mesh, Object3D } from 'three';

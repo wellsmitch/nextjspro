@@ -20,7 +20,7 @@ const Load: FC<IProps> = memo(({ emit }) => {
 
   const { contextSafe } = useGSAP();
 
-  const [device, setDevice] = useState<"pc" | "mobile">(Sys.getSystem);
+  const [device, setDevice] = useState<"pc" | "mobile">("pc");
 
   useEffect(() => {
     const onResize = () => {

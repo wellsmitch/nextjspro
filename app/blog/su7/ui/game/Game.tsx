@@ -1,3 +1,4 @@
+"use client"
 import { PointerEvent, useEffect, useRef, useState } from "react";
 import { res } from "./res";
 import { useGameStore, useInteractStore } from "../../utils/Store";

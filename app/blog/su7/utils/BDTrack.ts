@@ -1,3 +1,4 @@
+"use client"
 const BD = (str: string, type: boolean = false) => {
     const _hmt: any[] = (window as any)._hmt || [];
     type

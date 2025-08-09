@@ -1,3 +1,4 @@
+"use client"
 const Sys = {
     /**
      * 获得系统类型

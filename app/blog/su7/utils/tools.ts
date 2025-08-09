@@ -1,3 +1,4 @@
+"use client"
 import { useLayoutEffect } from "react"
 import { Material, Mesh, MeshStandardMaterial, Object3D, WebGLProgramParametersWithUniforms } from "three"
 import CustomShaderMaterial from "three-custom-shader-material/vanilla";
