@@ -54,7 +54,7 @@ const Sketch3 = () => {
   aoMap.magFilter = NearestFilter;
   aoMap.channel = 1;
 
-  const controlDom = useInteractStore((state) => state.controlDom);
+  const controlDom = useInteractStore((state) => state.controlDom || document.createElement("div"));
   const scene = useThree((state) => state.scene);
   const bodyColor = useGameStore((state) => state.bodyColor);
 
