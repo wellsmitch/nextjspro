@@ -25,6 +25,10 @@ const items: MenuProps['items'] = [
     // icon: <AppstoreOutlined />,
   },
   {
+    label: "小米su7",
+    key: "su7"
+  },
+  {
     label: 'flip动画',
     key: 'flip',
     // icon: <AppstoreOutlined />,
