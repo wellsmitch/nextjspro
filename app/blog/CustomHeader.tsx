@@ -66,7 +66,7 @@ export default (props: { modelActiveCode?: string, renderBack?: Function }) => {
   const [lottieFinish, setlottieFinish] = useState(false)
 
   useEffect(() => {
-    if (lottieFinish) {
+    if (lottieFinish && document) {
       const dom = document.querySelector(".logo-lottie-class")
       dom?.addEventListener("click", () => {
         nextRouter.replace("/blog")
