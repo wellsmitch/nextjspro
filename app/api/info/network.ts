@@ -36,7 +36,7 @@ const dd = Date.now();
 service.interceptors.request.use((request: InternalAxiosRequestConfig) => {
  const options = request
  const md5Fn = (str: any) => CryptoJS.MD5(str)
- const baseUrl = `https://api.wellsmitch.top/1.1/classes/{tableName}`
+ const baseUrl = `https:/a9aatva1.lc-cn-n1-shared.com/1.1/classes/{tableName}`
  let { restUrl, data } = restfulAPI(baseUrl + (options?.url ? "/" + options?.url : ""), options?.params);
  delete options.params
  delete options?.headers?.autoWell;
