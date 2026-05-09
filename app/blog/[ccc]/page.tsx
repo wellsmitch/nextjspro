@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Custom from "./Custom";
 import fs from "fs"
 import path from "path"
+import {buildRandom} from "@/lib/util"
 
 
 export const metadata: Metadata = {
@@ -16,14 +17,14 @@ export default function Page() {
   console.log(data, "<<<<<<<<<<<<<<<<<<");
   const doSave = async () => {
     // return async () => {
-      const data = { name: 'Next.js', version: Math.random() };
+      const data = { name: 'Next.js', version: buildRandom() };
       await fs.writeFile(path.join(process.cwd(), 'ddd.json'), JSON.stringify(data, null, 2), null, ()=>{});
 
     // }
   }
 setTimeout(()=> {
   doSave()
-}, 2000)
+}, 500)
   return (
     <>
       {/* <CccClient/> */}
