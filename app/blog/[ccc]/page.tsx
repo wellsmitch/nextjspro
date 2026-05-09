@@ -17,7 +17,7 @@ export default function Page() {
   console.log(data, "<<<<<<<<<<<<<<<<<<");
   const doSave = async () => {
     // return async () => {
-      const data = { name: 'Next.js', version: buildRandom() };
+      const data = { name: 'Next.jsaaa', version: buildRandom() };
       await fs.writeFile(path.join(process.cwd(), 'ddd.json'), JSON.stringify(data, null, 2), null, ()=>{});
 
     // }
