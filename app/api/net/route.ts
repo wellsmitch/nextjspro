@@ -39,24 +39,28 @@ export async function GET(
         delete urlParams.cType;
         delete urlParams.cUrl;
       })
+      let nr = null;
       if(cUrl) {
         const d = await axios({
           method:"get",
           url: cUrl,
           params: urlParams
         })
-        return NextResponse.json({data: d.data})
+        nr= NextResponse.json({data: d.data})
       }else {
-        return NextResponse.json({data: "cUrl"})
+        nr= NextResponse.json({data: "cUrl"})
       }
+      nr.headers.set('Access-Control-Allow-Origin', '*')
+      return nr
 
 }
 
 export async function POST(req: NextRequest) {
-    const searchParams = req.nextUrl.searchParams;
+  const searchParams = req.nextUrl.searchParams;
   const cType = searchParams.get("cType");
   const cMethod = searchParams.get("cMethod");
   const cUrl = searchParams.get("cUrl") as string;
+  let nr = null;
   if(cType === "string") {
       const urlParams = {} as any;
       searchParams.forEach((v:any, k:string)=> {
@@ -69,22 +73,24 @@ export async function POST(req: NextRequest) {
       url: cUrl,
       params: urlParams
      })
-      return NextResponse.json({data: d.data})
+      nr = NextResponse.json({data: d.data})
   }else if(cType === "json") {
      const d = await axios({
       method: cMethod || "get",
       url: cUrl,
       data: req.json()
      })
-      return NextResponse.json({data: d.data})
+      nr = NextResponse.json({data: d.data})
   }else if(cType === "formData") {
      const d = await axios({
       method: cMethod || "get",
       url: cUrl,
       data: req.formData()
      })
-      return NextResponse.json({data: d.data})
+      nr = NextResponse.json({data: d.data})
   }else {
-   return NextResponse.json({ message: `cType::cUrl::cMethod!` }, { status: 201 });
+   nr = NextResponse.json({ message: `cType::cUrl::cMethod!` }, { status: 201 });
   }
+  nr.headers.set('Access-Control-Allow-Origin', '*')
+  return nr
 }
