@@ -19,6 +19,8 @@ declare namespace CustomGlobalType {
     show: boolean
   }
 }
+// 方案一：声明所有 .scss 模块为任意类型（适合副作用导入，如 import './index.scss'）
+declare module '*.scss';
 declare module "*.less";
 declare module '*.svg' {
   import React = require('react')

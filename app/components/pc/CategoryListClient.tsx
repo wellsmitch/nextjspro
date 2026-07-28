@@ -13,11 +13,14 @@ export default () => {
  })
 
  const getIndexData = async () => {
-  const res = await Network.get("",{
-   params: {
-    tableName:"codeList"
-   }
-  })
+//   const res = await Network.get("",{
+//    params: {
+//     tableName:"codeList"
+//    }
+//   })
+const res = await {
+    data:{results: []}
+} as any
   
   const res1: {results: []} = res.data
   
