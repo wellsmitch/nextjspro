@@ -63,9 +63,9 @@ const items: MenuProps['items'] = [
   },
 ]
 
-export default (props: {dfn:any, modelActiveCode?: string, renderBack?: Function }) => {
+export default (props: { modelActiveCode?: string, renderBack?: Function }) => {
   const nextRouter = useRouter()
-  const { modelActiveCode,dfn } = props
+  const { modelActiveCode } = props
   const [activeCode, setActiveCode] = useState(modelActiveCode || "")
 
   const [lottieFinish, setlottieFinish] = useState(false)
@@ -121,16 +121,16 @@ export default (props: {dfn:any, modelActiveCode?: string, renderBack?: Function
         selectedKeys={[activeCode]}
         onSelect={({ selectedKeys }) => {
           // console.log('selectedKeys',selectedKeys)
-          // setActiveCode(selectedKeys[0])
+          setActiveCode(selectedKeys[0])
           console.log(selectedKeys)
-          if(selectedKeys[0] == "dFile") {
-            // 1. 写入文件到 /tmp
-            // dfn()
-             fetch('/api/file')
-            .then(res => res.json())
-          }
-          // const urlStr = selectedKeys[0] === "categoryListIndex" ? '' : selectedKeys[0]
-          // nextRouter.push(`/blog/${urlStr}`)
+          // if(selectedKeys[0] == "dFile") {
+          //   // 1. 写入文件到 /tmp
+          //   // dfn()
+          //    fetch('/api/file')
+          //   .then(res => res.json())
+          // }
+          const urlStr = selectedKeys[0] === "categoryListIndex" ? '' : selectedKeys[0]
+          nextRouter.push(`/blog/${urlStr}`)
 
         }}
         theme="light"

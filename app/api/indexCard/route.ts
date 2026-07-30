@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 //   })
 
     // 读取 JSON 文件
-const filePath = path.join("/tmp", 'indexData.json');
+const filePath = path.join("/tmp", 'codeList.json');
 const fileContent = fs.readFileSync(filePath, 'utf8');
 
 // 将 JSON 字符串解析为 JavaScript 对象

@@ -27,36 +27,45 @@ const ActicleManager: React.FC = () => {
 
   const getList = async (searchActionFlag?: any) => {
     const urlSearchCode = tabsAccessKey
-    const cres = await Network.get("", {
-      params: {
-        tableName: "indexData",
-        count: 1,
-        skip: (dataParams.current - 1) * (dataParams.pageSize),
-        limit: dataParams.pageSize,
-        where: JSON.stringify({
-          "$and": [
-            urlSearchCode ? {
-              "moduleType": {
-                "$regex": urlSearchCode, "$options": "i"
-              },
-            } : null
-          ],
-          // "$or": [
-          //   (kval ? {
-          //     "moduleType": {
-          //       "$regex": kval, "$options": "i"
-          //     },
-          //   } : {}),
-          //   (kval ? {
-          //     "content": {
-          //       "$regex": kval, "$options": "i"
-          //     },
-          //   } : {})
-          // ]
-        })
-      },
-    });
-    const res: ResData = cres.data || {}
+    // const cres = await Network.get("", {
+    //   params: {
+    //     tableName: "indexData",
+    //     count: 1,
+    //     skip: (dataParams.current - 1) * (dataParams.pageSize),
+    //     limit: dataParams.pageSize,
+    //     where: JSON.stringify({
+    //       "$and": [
+    //         urlSearchCode ? {
+    //           "moduleType": {
+    //             "$regex": urlSearchCode, "$options": "i"
+    //           },
+    //         } : null
+    //       ],
+    //       // "$or": [
+    //       //   (kval ? {
+    //       //     "moduleType": {
+    //       //       "$regex": kval, "$options": "i"
+    //       //     },
+    //       //   } : {}),
+    //       //   (kval ? {
+    //       //     "content": {
+    //       //       "$regex": kval, "$options": "i"
+    //       //     },
+    //       //   } : {})
+    //       // ]
+    //     })
+    //   },
+    // });
+
+      const rrr = await Network.get("/api/indexCardDetail",{
+        params: {
+          code: typeCode||"",
+          like: tabsAccessKey
+        }
+      })
+      const cres = rrr.data
+      console.log('cres',cres)
+    const res: ResData = cres|| {}
     const splitMark = "$_$_$"
     res?.results?.map((info: ResInfo) => {
       let tempList = (info.content || "") && (info?.content?.replace(/<pre/ig, splitMark + "<pre").replace(/<\/pre>/ig, "</pre>" + splitMark).split(splitMark));
@@ -180,9 +189,9 @@ const ActicleManager: React.FC = () => {
 
   const getCategoryList = async () => {
 
-    const cresData = await Network.get("", {
+    const cresData = await Network.get("/api/indexCard", {
       params: {
-        tableName: "codeList",
+        tableName: "indexData",
         // count: 1,
         // skip: (dataParams.current - 1) * (dataParams.pageSize),
         // limit: dataParams.pageSize,

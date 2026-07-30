@@ -358,11 +358,12 @@ const Index = () => {
   }
 
   const getX6ListFn = async () => {
-    const res111: any = await Network.get("", {
-      params: {
-        tableName: "x6List"
-      }
+    const res111: any = await Network.get("/api/x6", {
+      // params: {
+      //   tableName: "x6List"
+      // }
     });
+    console.log('res111',res111.data)
     const { results = [] }: ResData = res111.data
     setX6List(results)
     if (results.length > 0) {

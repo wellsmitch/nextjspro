@@ -6,6 +6,7 @@ import Paragraph from "antd/es/typography/Paragraph"
 import { useEffect, useRef, useState } from "react"
 // import { useRouter } from "next/navigation"
 import { useRouter } from "@bprogress/next"
+import { apiGetIndexData } from "@/app/api/ajaxApi"
 
 export default () => {
  const [categoryInfo, setCategoryInfo] = useState<ResData>({
@@ -13,17 +14,17 @@ export default () => {
  })
 
  const getIndexData = async () => {
-//   const res = await Network.get("",{
+  const res = await Network.get("/api/indexCard",{
 //    params: {
 //     tableName:"codeList"
 //    }
-//   })
-const res = await {
-    data:{results: []}
-} as any
+  })
+// const res = await {
+//     data:{results: []}
+// } as any
   
   const res1: {results: []} = res.data
-  
+  console.log('res1',res1)
   setCategoryInfo(res1)
  }
   useEffect(() => {
