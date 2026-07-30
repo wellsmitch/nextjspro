@@ -16,8 +16,10 @@ export async function GET(request: NextRequest) {
     const code = info.get("code")
     const like = info.get("like")
         // 读取 JSON 文件
-    const filePath = path.join("/tmp", 'ddindexData.json');
-    const fileContent = fs.readFileSync(filePath, 'utf8');
+    // const filePath = path.join("/tmp", 'ddindexData.json');
+        const srccccc = path.join(process.cwd(), 'app/assets/json/data/ddindexData.json'); // 源文件夹
+    
+    const fileContent = fs.readFileSync(srccccc, 'utf8');
 
     // 将 JSON 字符串解析为 JavaScript 对象
     const jsonData = JSON.parse(fileContent) as [];
