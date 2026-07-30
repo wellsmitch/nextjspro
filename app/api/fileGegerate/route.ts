@@ -8,7 +8,7 @@ export async function GET(request: Request) {
       try {
     const src = path.join(process.cwd(), 'app/assets/json/data'); // 源文件夹
     const dest = '/tmp';    
-    // @ts-ignore  
+    // @ts-ignore  mmmmmmmmmmmmm
     fs.cp(src, dest, { recursive: true },err=> {
         console.log('err',err)
     });
