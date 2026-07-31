@@ -15,7 +15,7 @@ const srcPath = path.join(src, 'codeList.json');
 // 目标文件路径 (必须写入 /tmp 目录)
 const destPath = path.join('/tmp', 'codeList.json');
      fs.copyFileSync(srcPath, destPath);
-    return NextResponse.json({ message: 'Copied successfully' });
+    return NextResponse.json({ message: 'Copied successfully+1' });
   } catch (error) {
     console.log('error',error)
     return NextResponse.json({ error:"复制失败" }, { status: 500 });
