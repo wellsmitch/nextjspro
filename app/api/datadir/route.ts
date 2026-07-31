@@ -21,7 +21,8 @@ async function getAllFilesAsync(dir:any):Promise<any>  {
     if (entry.isDirectory&&entry.isDirectory()) {
       return getAllFilesAsync(fullPath);
     } else {
-      return fullPath;
+        const stats = await fs.statSync(fullPath);
+      return [fullPath, stats.size];
     }
   }));
   // 展平结果数组
