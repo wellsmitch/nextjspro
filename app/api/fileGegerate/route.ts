@@ -9,7 +9,12 @@ export async function GET(request: Request) {
     const src = path.join(process.cwd(), 'app/assets/json/data'); // 源文件夹
     const dest = '/tmp';    
     // @ts-ignore  mmmmmmmmmmmmm
-    fs.cpSync(src, dest, { recursive: true });
+    // fs.cpSync(src, dest, { recursive: true });
+    // 源文件路径 (例如，位于项目中的文件)
+const srcPath = path.join(src, 'codeList.json');
+// 目标文件路径 (必须写入 /tmp 目录)
+const destPath = path.join('/tmp', 'codeList.json');
+     fs.copyFileSync(srcPath, destPath);
     return NextResponse.json({ message: 'Copied successfully' });
   } catch (error) {
     console.log('error',error)
